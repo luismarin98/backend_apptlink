@@ -4,13 +4,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace apptlink.Domain.Models;
 
-[Table("Categoria")]
-public class CategoriaModel : BaseModel
+[Table("Categorias")]
+public class CategoriaModel
 {
-    [Key][Column("id")] public int Id { get; set; }
-    [Column("nombre")] public string? Nombre { get; set; }
-    [Column("descripcion")] public string? Descripcion { get; set; }
-    [Column("precio")] public decimal Precio { get; set; }
-    [Column("stock")] public int Stock { get; set; }
-    [Column("categoria_id")] public int CategoriaId { get; set; }
+    [Key][Column("id", TypeName = "int")] public int Id { get; set; }
+    [Column("nombre", TypeName = "varchar")] public string? Nombre { get; set; }
+    [Column("descripcion", TypeName = "text")] public string? Descripcion { get; set; }
 }

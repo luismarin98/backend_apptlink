@@ -1,0 +1,12 @@
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Domain\bin\Debug\net9.0\apptlink.Domain.deps.json
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Domain\bin\Debug\net9.0\apptlink.Domain.dll
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Domain\bin\Debug\net9.0\apptlink.Domain.pdb
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Domain\obj\Debug\net9.0\apptlink.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Domain\obj\Debug\net9.0\apptlink.Domain.AssemblyInfoInputs.cache
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Domain\obj\Debug\net9.0\apptlink.Domain.AssemblyInfo.cs
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Domain\obj\Debug\net9.0\apptlink.Domain.csproj.CoreCompileInputs.cache
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Domain\obj\Debug\net9.0\apptlink.Domain.sourcelink.json
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Domain\obj\Debug\net9.0\apptlink.Domain.dll
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Domain\obj\Debug\net9.0\refint\apptlink.Domain.dll
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Domain\obj\Debug\net9.0\apptlink.Domain.pdb
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Domain\obj\Debug\net9.0\ref\apptlink.Domain.dll

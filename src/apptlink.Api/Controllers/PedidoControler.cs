@@ -25,7 +25,8 @@ namespace apptlink.Api.Controllers
             {
                 _logger.LogInformation("Buscando pedidos");
                 var result = await _contract.GetPedidos();
-                return Ok(result);
+                if (result.Count is 0) return StatusCode(StatusCodes.Status404NotFound, "Sin resultados previos");
+                return StatusCode(StatusCodes.Status200OK, result);
             }
             catch (Exception ex)
             {
@@ -45,7 +46,8 @@ namespace apptlink.Api.Controllers
             {
                 _logger.LogInformation("Buscando pedido");
                 var result = await _contract.GetPedidosID(id);
-                return Ok(result);
+                if (result is null) return StatusCode(StatusCodes.Status404NotFound, "Sin resultados previos");
+                return StatusCode(StatusCodes.Status200OK, result);
             }
             catch (Exception ex)
             {
@@ -65,7 +67,8 @@ namespace apptlink.Api.Controllers
             {
                 _logger.LogInformation("Inserindo pedido");
                 var result = await _contract.PostPedidos(pedido);
-                return Ok(result);
+                if (result is false) return StatusCode(StatusCodes.Status400BadRequest, "Error al inserir pedido");
+                return StatusCode(StatusCodes.Status201Created, "Pedido inserido com sucesso");
             }
             catch (Exception ex)
             {
@@ -85,7 +88,8 @@ namespace apptlink.Api.Controllers
             {
                 _logger.LogInformation("Atualizando pedido");
                 var result = await _contract.PutPedidos(pedido);
-                return Ok(result);
+                if (result is false) return StatusCode(StatusCodes.Status400BadRequest, "Error al atualizar pedido");
+                return StatusCode(StatusCodes.Status200OK, "Pedido atualizado com sucesso");
             }
             catch (Exception ex)
             {
@@ -105,7 +109,8 @@ namespace apptlink.Api.Controllers
             {
                 _logger.LogInformation("Deletando pedido");
                 var result = await _contract.DeletePedidos(id);
-                return Ok(result);
+                if (result is false) return StatusCode(StatusCodes.Status400BadRequest, "Error al deletar pedido");
+                return StatusCode(StatusCodes.Status200OK, "Pedido deletado com sucesso");
             }
             catch (Exception ex)
             {

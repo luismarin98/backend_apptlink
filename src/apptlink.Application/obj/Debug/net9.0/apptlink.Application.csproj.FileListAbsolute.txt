@@ -1,0 +1,16 @@
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Application\bin\Debug\net9.0\apptlink.Application.deps.json
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Application\bin\Debug\net9.0\apptlink.Application.dll
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Application\bin\Debug\net9.0\apptlink.Application.pdb
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Application\bin\Debug\net9.0\apptlink.Domain.dll
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Application\bin\Debug\net9.0\apptlink.Domain.pdb
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Application\obj\Debug\net9.0\apptlink.Application.csproj.AssemblyReference.cache
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Application\obj\Debug\net9.0\apptlink.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Application\obj\Debug\net9.0\apptlink.Application.AssemblyInfoInputs.cache
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Application\obj\Debug\net9.0\apptlink.Application.AssemblyInfo.cs
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Application\obj\Debug\net9.0\apptlink.Application.csproj.CoreCompileInputs.cache
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Application\obj\Debug\net9.0\apptlink.Application.sourcelink.json
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Application\obj\Debug\net9.0\apptlink.775D2AF5.Up2Date
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Application\obj\Debug\net9.0\apptlink.Application.dll
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Application\obj\Debug\net9.0\refint\apptlink.Application.dll
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Application\obj\Debug\net9.0\apptlink.Application.pdb
+C:\Users\LuisMarin\Desktop\ApptLink_proyecto\backend\src\apptlink.Application\obj\Debug\net9.0\ref\apptlink.Application.dll

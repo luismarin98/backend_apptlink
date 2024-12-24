@@ -8,33 +8,13 @@ public static class CategoriaParsing
 {
     public static CategoriaModel ModelToType(CategoriaType type)
     {
-        CategoriaModel model = new CategoriaModel
-        {
-            CategoriaId = type.CategoriaId,
-            Descripcion = type.Descripcion,
-            FechaActualizacion = DateTime.Now,
-            FechaCreacion = type.FechaCreacion,
-            Id = type.Id,
-            Nombre = type.Nombre,
-            Precio = type.Precio,
-            Stock = type.Stock
-        };
+        CategoriaModel model = new CategoriaModel { Descripcion = type.Descripcion, Id = type.Id, Nombre = type.Nombre };
         return model;
     }
 
     public static CategoriaType ModelToType(CategoriaModel model)
     {
-        CategoriaType type = new CategoriaType
-        {
-            CategoriaId = model.CategoriaId,
-            Descripcion = model.Descripcion,
-            FechaActualizacion = DateTime.Now,
-            FechaCreacion = model.FechaCreacion,
-            Id = model.Id,
-            Nombre = model.Nombre,
-            Precio = model.Precio,
-            Stock = model.Stock
-        };
+        CategoriaType type = new CategoriaType { Descripcion = model.Descripcion, Id = model.Id, Nombre = model.Nombre };
         return type;
     }
 

@@ -7,11 +7,11 @@ namespace apptlink.Domain.Models;
 [Table("DetallesPedido")]
 public class DetallePedidoModel
 {
-    [Key][Column("id")] public long Id { get; set; }
-    [Column("pedido_id")] public int PedidoId { get; set; }
-    [Column("producto_id")] public int ProductoId { get; set; }
-    [Column("cantidad")] public int Cantidad { get; set; }
-    [Column("precio_unitario")] public decimal PrecioUnitario { get; set; }
-    [Column("descuento")] public decimal Descuento { get; set; }
-    [Column("impuesto")] public decimal Impuesto { get; set; }
+    [Key][Column("id", TypeName = "int")] public int Id { get; set; }
+    [Column("pedido_id", TypeName = "int")] public int PedidoId { get; set; }
+    [Column("producto_id", TypeName = "int")] public int ProductoId { get; set; }
+    [Column("cantidad", TypeName = "int")] public int Cantidad { get; set; }
+    [Column("precio_unitario", TypeName = "decimal")] public decimal PrecioUnitario { get; set; }
+    [Column("descuento", TypeName = "decimal")] public decimal Descuento { get; set; }
+    [Column("impuesto", TypeName = "decimal")] public decimal Impuesto { get; set; }
 }

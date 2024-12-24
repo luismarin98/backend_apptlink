@@ -25,7 +25,7 @@ namespace apptlink.Api.Controllers
             {
                 _logger.LogInformation("DetallePedidoController - GetDetallePedidos - Start");
                 List<DetallePedidoType> list = await _contract.GetDetallesPedidos();
-                if (list.Count is 0) return NoContent();
+                if (list.Count is 0) return StatusCode(StatusCodes.Status404NotFound, "No se encontraron registros");
                 return Ok(list);
             }
             catch (Exception ex)
@@ -46,7 +46,7 @@ namespace apptlink.Api.Controllers
             {
                 _logger.LogInformation("DetallePedidoController - GetDetallePedidoID - Start");
                 DetallePedidoType detallePedido = await _contract.GetDetallePedidoID(id);
-                if (detallePedido is null) return NotFound();
+                if (detallePedido is null) return StatusCode(StatusCodes.Status404NotFound, "No se encontraron registros");
                 return Ok(detallePedido);
             }
             catch (Exception ex)
@@ -67,8 +67,7 @@ namespace apptlink.Api.Controllers
             {
                 _logger.LogInformation("DetallePedidoController - PostDetallePedido - Start");
                 bool newDetallePedido = await _contract.PostDetallesPedidos(detallePedido);
-                if (newDetallePedido is false) return BadRequest();
-                return Ok();
+                return StatusCode(StatusCodes.Status400BadRequest, "No se pudo completar la transacción");
             }
             catch (Exception ex)
             {
@@ -88,7 +87,7 @@ namespace apptlink.Api.Controllers
             {
                 _logger.LogInformation("DetallePedidoController - PutDetallePedido - Start");
                 bool updateDetallePedido = await _contract.PutDetallesPedidos(detallePedido);
-                if (updateDetallePedido is false) return BadRequest();
+                if (updateDetallePedido is false) return BadRequest("No se pudo completar la transacción");
                 return Ok();
             }
             catch (Exception ex)
@@ -109,7 +108,7 @@ namespace apptlink.Api.Controllers
             {
                 _logger.LogInformation("DetallePedidoController - DeleteDetallePedido - Start");
                 bool deleteDetallePedido = await _contract.DeleteDetallesPedidos(id);
-                if (deleteDetallePedido is false) return BadRequest();
+                if (deleteDetallePedido is false) return BadRequest("No se pudo completar la transacción");
                 return Ok();
             }
             catch (Exception ex)

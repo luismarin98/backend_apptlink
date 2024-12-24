@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "hr6r7ZnU/sL/uoYIapawuVqiGyTEfqYNuim6JAuSmi0=",
+  "Source": "apptlink.Api",
+  "BasePath": "_content/apptlink.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

@@ -1,20 +1,15 @@
 using System;
 using apptlink.Domain.Types;
+using Microsoft.Extensions.Configuration;
 
 namespace apptlink.Application.Contract;
 
 public interface IUsuarioContract
 {
-    public Task<UsuarioType> AuthSinc(Auth auth);
-    public Task<UsuarioType> GetUsuarioID(Guid id);
-    public Task<List<UsuarioType>> GetUsuarios();
-    public Task<UsuarioType> PostUsuario(UsuarioType usuario);
-    public Task<UsuarioType> PutUsuario(UsuarioType usuario);
-    public Task<UsuarioType> DeleteUsuario(Guid id);
-}
-
-public class Auth
-{
-    public string? Email { get; set; }
-    public string? Password { get; set; }
+    public Task<bool> ChangePassword(AuthUsuarioType auth);
+    public Task<bool> GetSearchVerificationCode(string email, string code);
+    public Task<string> PostRecover(string email, IConfiguration _configuration);
+    public Task<UsuarioType> AuthUsuario(AuthUsuarioType usuario);
+    public Task<bool> PostUsuario(UsuarioType usuario);
+    public Task<bool> PutUsuario(UsuarioType usuario);
 }

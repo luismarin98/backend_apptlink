@@ -7,10 +7,10 @@ namespace apptlink.Domain.Models;
 [Table("Productos")]
 public class ProductosModel : BaseModel
 {
-    [Key][Column("id")] public int Id { get; set; }
-    [Column("nombre")] public string? Nombre { get; set; }
-    [Column("descripcion")] public string? Descripcion { get; set; }
-    [Column("precio")] public decimal Precio { get; set; }
-    [Column("stock")] public int Stock { get; set; }
-    [Column("categoria_id")] public int CategoriaId { get; set; }
+    [Key][Column("id", TypeName = "int")] public int Id { get; set; }
+    [Column("nombre", TypeName = "varchar(500)")] public string? Nombre { get; set; }
+    [Column("descripcion", TypeName = "text")] public string? Descripcion { get; set; }
+    [Column("precio", TypeName = "decimal(18,0)")] public decimal Precio { get; set; }
+    [Column("stock", TypeName = "int")] public int Stock { get; set; }
+    [Column("categoria_id", TypeName = "int")] public int CategoriaId { get; set; }
 }
