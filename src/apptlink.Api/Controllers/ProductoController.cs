@@ -42,6 +42,33 @@ namespace apptlink.Api.Controllers
             }
         }
 
+        [HttpGet("reporte")]
+        public async Task<ActionResult> GetReporte()
+        {
+            try
+            {
+                _logger.LogInformation("Inicia producto controller - Metodo - Get");
+                List<ProductoType>? type = await _contract.GetProductos();
+                if (type is null) return StatusCode(StatusCodes.Status404NotFound, "Sin resultados previos");
+                List<ReporteProductoResponses> res = type.Select(x => new ReporteProductoResponses
+                {
+                    Nombre = x.Nombre,
+                    Precio = x.Precio,
+                    Cantidad = x.Stock
+                }).ToList();
+                return StatusCode(StatusCodes.Status200OK, res);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error en metodo get - producto controller");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error interno del servidor");
+            }
+            finally
+            {
+                _logger.LogInformation("Finaliza producto controller - Metodo - Get");
+            }
+        }
+
         [HttpGet("valor_total_promedio")]
         public async Task<ActionResult> GetValorTotal()
         {
