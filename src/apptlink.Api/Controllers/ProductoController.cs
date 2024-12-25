@@ -1,4 +1,6 @@
 using apptlink.Application.Contract;
+using apptlink.Domain.Models;
+using apptlink.Domain.Responses;
 using apptlink.Domain.Types;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -40,6 +42,30 @@ namespace apptlink.Api.Controllers
             }
         }
 
+        [HttpGet("valor_total_promedio")]
+        public async Task<ActionResult> GetValorTotal()
+        {
+            try
+            {
+                _logger.LogInformation("Inicia producto controller - Metodo - Get");
+                List<ProductoType>? type = await _contract.GetProductos();
+                ProductoResponses res = new ProductoResponses();
+                res.valorTotal = type.Sum(x => x.Precio);
+                res.valorPromedioPrecios = type.Average(x => x.Precio);
+                if (type is null) return StatusCode(StatusCodes.Status404NotFound, "Sin resultados previos");
+                return StatusCode(StatusCodes.Status200OK, res);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error en metodo get - producto controller");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error interno del servidor");
+            }
+            finally
+            {
+                _logger.LogInformation("Finaliza producto controller - Metodo - Get");
+            }
+        }
+
         [HttpGet]
         public async Task<ActionResult> GetProductos()
         {
@@ -67,6 +93,9 @@ namespace apptlink.Api.Controllers
             try
             {
                 _logger.LogInformation("Inicia producto controller - Metodo - Get");
+                if (string.IsNullOrEmpty(producto.Nombre) || string.IsNullOrEmpty(producto.Descripcion)) return StatusCode(StatusCodes.Status400BadRequest, "Error en los datos enviados, Asegurese de no enviar campos vacios");
+                if (producto.Precio <= 0) return StatusCode(StatusCodes.Status400BadRequest, "Error en los datos enviados, Asegurese de enviar un precio valido");
+                if (producto.Stock <= 0) return StatusCode(StatusCodes.Status400BadRequest, "Error en los datos enviados, Asegurese de enviar un stock valido");
                 bool res = await _contract.PostProducto(producto);
                 if (res) return StatusCode(StatusCodes.Status201Created, "Producto creado con exito");
                 return StatusCode(StatusCodes.Status400BadRequest, "Error al crear producto");
