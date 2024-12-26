@@ -24,7 +24,7 @@ namespace apptlink.Api.Controllers
             try
             {
                 _logger.LogInformation("Buscando pedidos");
-                var result = await _contract.GetPedidos();
+                List<PedidoType> result = await _contract.GetPedidos();
                 if (result.Count is 0) return StatusCode(StatusCodes.Status404NotFound, "Sin resultados previos");
                 return StatusCode(StatusCodes.Status200OK, result);
             }
@@ -45,7 +45,7 @@ namespace apptlink.Api.Controllers
             try
             {
                 _logger.LogInformation("Buscando pedido");
-                var result = await _contract.GetPedidosID(id);
+                PedidoType result = await _contract.GetPedidosID(id);
                 if (result is null) return StatusCode(StatusCodes.Status404NotFound, "Sin resultados previos");
                 return StatusCode(StatusCodes.Status200OK, result);
             }

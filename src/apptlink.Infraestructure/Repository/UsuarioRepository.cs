@@ -127,8 +127,28 @@ public class UsuarioRepository : IUsuarioContract
         try
         {
             _logger.LogInformation("Inicia usuario controller - Metodo - Post");
-            UsuarioModel? usuarioModel = await _context.Usuario.FirstOrDefaultAsync(x => x.Email == usuario.Email && x.Password == usuario.Password);
-            if (usuarioModel is null) return null!;
+            UsuarioModel? usuarioModel = await _context.Usuario.FirstOrDefaultAsync(x => x.Email == usuario.Email);
+            if (usuarioModel is null)
+            {
+                return null!;
+            }
+            else
+            {
+                if (usuarioModel.Password != usuario.Password)
+                {
+                    usuarioModel.IntentosLogueo++;
+                }
+                else if (usuarioModel.IntentosLogueo >= 5)
+                {
+                    usuarioModel.Estado = false;
+                    _context.Usuario.Update(usuarioModel);
+                    await _context.SaveChangesAsync();
+                }
+                else
+                {
+                    usuarioModel.IntentosLogueo = 0;
+                }
+            }
             return UsuarioParsing.ModelToType(usuarioModel);
         }
         catch (Exception ex)
