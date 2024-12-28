@@ -1,10 +1,11 @@
 using apptlink.Application.Contract;
+using apptlink.Infraestructure.Configuracion;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace apptlink.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/" + General.NombreApi + "/[controller]")]
     [ApiController]
     public class FacturaController : ControllerBase
     {

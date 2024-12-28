@@ -1,6 +1,7 @@
 using System;
 using System.Text;
 using apptlink.Application.Contract;
+using apptlink.Infraestructure.Configuracion;
 using apptlink.Infraestructure.Context;
 using apptlink.Infraestructure.Repository;
 using apptlink.Infraestructure.Utils;
@@ -22,6 +23,7 @@ public static class InfraestructureServices
         services.AddScoped<IProductoContract, ProductoRepository>();
         services.AddScoped<IUsuarioContract, UsuarioRepository>();
         services.AddSingleton<EmailService>();
+        services.AddScoped<JWTGenerate>();
 
         services.AddAuthentication(opt =>
         {

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("apptlink.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+425595dc855015717aaf90b04a55c4a287e13ee9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8f0d1e4b73003b66e596323f4bb9f0d9af6731c4")]
 [assembly: System.Reflection.AssemblyProductAttribute("apptlink.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("apptlink.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.OpenApi.Models;
 using apptlink.Infraestructure;
+using apptlink.Infraestructure.Configuracion;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +11,7 @@ builder.Services.AddServicesCollection(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "apptlink backend", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = General.NombreApi, Version = "v1" });
 });
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -29,7 +30,7 @@ var app = builder.Build();
 //if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c => { c.SwaggerEndpoint("v1/swagger.json", "applink" + "-" + "ge" + " v1"); });
+    app.UseSwaggerUI(c => { c.SwaggerEndpoint("v1/swagger.json", General.NombreApi + "-" + General.TipoApi + " v1"); });
 }
 
 app.UseHttpsRedirection();

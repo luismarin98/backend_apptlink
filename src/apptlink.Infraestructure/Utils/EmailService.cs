@@ -9,7 +9,6 @@ public class EmailService
 {
     public void SendEmail(string to, string subject, string body, IConfiguration _configuration)
     {
-        string resetLink = "";
 
         var smtpClient = new SmtpClient(_configuration["Smtp:Host"])
         {

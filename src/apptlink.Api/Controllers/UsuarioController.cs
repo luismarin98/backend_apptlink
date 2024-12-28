@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace apptlink.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/" + General.NombreApi + "/[controller]")]
     [ApiController]
     public class UsuarioController : ControllerBase
     {
@@ -48,7 +48,7 @@ namespace apptlink.Api.Controllers
         }
 
         [HttpGet("{email}/{code}")]
-        public async Task<ActionResult> GetSearchVerificationCode(string email, string code)
+        public async Task<ActionResult> GetSearchVerificationCode(string email, int code)
         {
             try
             {

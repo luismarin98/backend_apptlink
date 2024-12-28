@@ -32,7 +32,7 @@ public class UsuarioRepository : IUsuarioContract
             UsuarioModel? usuario = await _context.Usuario.FirstOrDefaultAsync(x => x.Email == email);
             if (usuario is null) return null!;
 
-            string verificationCode = GenerateVerificationCode();
+            int verificationCode = GenerateVerificationCode();
             usuario.VerificationCode = verificationCode;
             usuario.VerificationDate = DateTime.UtcNow.AddMinutes(15);
 
@@ -204,7 +204,7 @@ public class UsuarioRepository : IUsuarioContract
         }
     }
 
-    public async Task<bool> GetSearchVerificationCode(string email, string code)
+    public async Task<bool> GetSearchVerificationCode(string email, int code)
     {
         try
         {
@@ -249,9 +249,9 @@ public class UsuarioRepository : IUsuarioContract
         }
     }
 
-    private string GenerateVerificationCode()
+    private int GenerateVerificationCode()
     {
         var random = new Random();
-        return random.Next(100000, 999999).ToString();
+        return random.Next(100000, 999999);
     }
 }
