@@ -86,25 +86,35 @@ public class UsuarioRepository : IUsuarioContract
                             color: #777777;
                             font-size: 14px;
                         }
-        ";
+            ";
 
             string body = $@"
             <!DOCTYPE html>
             <html lang=""es"">
-                <head>
-                    <meta charset=""UTF-8"">
-                    <meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
-                    <title>Recuperación de Contraseña</title>
-                    <style>{styles}</style>
-                </head>
-                <body>
-                    <p>Hola,</p>
-                    <p>Recibimos una solicitud para restablecer tu contraseña. Usa el siguiente código de verificación para restablecer tu contraseña:</p>
-                    <h2>{verificationCode}</h2>
-                    <p>Si no solicitaste un restablecimiento de contraseña, ignora este correo electrónico.</p>
-                    <p>Gracias,</p>
-                    <p>El equipo de ApptLink</p>
-                </body>
+            <head>
+                <meta charset=""UTF-8"">
+                <meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
+                <title>Recuperación de Contraseña</title>
+                <style>
+                    {styles}
+                </style>
+            </head>
+            <body>
+                <div class=""container"">
+                    <div class=""header"">
+                        <h1>Recuperación de Contraseña</h1>
+                    </div>
+                    <div class=""content"">
+                        <p>Hola, {usuario.Nombre}</p>
+                        <p>Recibimos una solicitud para restablecer tu contraseña. Usa el siguiente código de verificación para restablecer tu contraseña:</p>
+                        <h2>{verificationCode}</h2>
+                        <p>Si no solicitaste un restablecimiento de contraseña, ignora este correo electrónico.</p>
+                    </div>
+                    <div class=""footer"">
+                        <p>El equipo de ApptLink</p>
+                    </div>
+                </div>
+            </body>
             </html>";
 
             _emailService.SendEmail(usuario.Email!, "Recuperación de Contraseña", body, _configuration);
