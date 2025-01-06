@@ -31,7 +31,7 @@ public class ProductoRepository : IProductoContract
             await _context.SaveChangesAsync();
             return true;
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             _logger.LogError(ex, "Error en metodo delete - producto controller");
             return false;
@@ -51,10 +51,29 @@ public class ProductoRepository : IProductoContract
             if (producto is null) return null!;
             return ProductoParsing.ModelToType(producto);
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             _logger.LogError(ex, "Error en metodo get - producto controller");
-           return null!;
+            return null!;
+        }
+        finally
+        {
+            _logger.LogInformation("Finaliza producto controller - Metodo - GET");
+        }
+    }
+
+    public async Task<List<ProductoType>> GetFilteredProducts(int id)
+    {
+        try
+        {
+            _logger.LogInformation("Inicia producto controller - Metodo - GET");
+            List<ProductosModel> productos = await _context.Producto.Where(x => x.CategoriaId == id).ToListAsync();
+            return ProductoParsing.ModelToType(productos);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error en metodo get - producto controller");
+            return null!;
         }
         finally
         {
@@ -70,7 +89,7 @@ public class ProductoRepository : IProductoContract
             List<ProductosModel> productos = await _context.Producto.ToListAsync();
             return ProductoParsing.ModelToType(productos);
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             _logger.LogError(ex, "Error en metodo get - producto controller");
             return null!;
@@ -91,7 +110,7 @@ public class ProductoRepository : IProductoContract
             await _context.SaveChangesAsync();
             return true;
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             _logger.LogError(ex, "Error en metodo POST - producto controller");
             return false;
@@ -112,7 +131,7 @@ public class ProductoRepository : IProductoContract
             await _context.SaveChangesAsync();
             return true;
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             _logger.LogError(ex, "Error en metodo delete - producto controller");
             return false;

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YYSBNnWz6ts=",
+  "dgSpecHash": "gWB0nKdSlxY=",
   "success": true,
-  "projectFilePath": "c:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Application\\apptlink.Application.csproj",
+  "projectFilePath": "C:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Application\\apptlink.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LuisMarin\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.0\\microsoft.extensions.configuration.9.0.0.nupkg.sha512",
     "C:\\Users\\LuisMarin\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.0\\microsoft.extensions.configuration.abstractions.9.0.0.nupkg.sha512",

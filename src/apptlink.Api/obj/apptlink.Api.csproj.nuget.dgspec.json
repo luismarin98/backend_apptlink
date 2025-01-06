@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Api\\apptlink.Api.csproj": {}
+    "C:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Api\\apptlink.Api.csproj": {}
   },
   "projects": {
-    "c:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Api\\apptlink.Api.csproj": {
+    "C:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Api\\apptlink.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Api\\apptlink.Api.csproj",
+        "projectUniqueName": "C:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Api\\apptlink.Api.csproj",
         "projectName": "apptlink.Api",
-        "projectPath": "c:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Api\\apptlink.Api.csproj",
+        "projectPath": "C:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Api\\apptlink.Api.csproj",
         "packagesPath": "C:\\Users\\LuisMarin\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Api\\obj\\",
+        "outputPath": "C:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\LuisMarin\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,8 +26,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "c:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Infraestructure\\apptlink.Infraestructure.csproj": {
-                "projectPath": "c:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Infraestructure\\apptlink.Infraestructure.csproj"
+              "C:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Infraestructure\\apptlink.Infraestructure.csproj": {
+                "projectPath": "C:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Infraestructure\\apptlink.Infraestructure.csproj"
               }
             }
           }
@@ -80,14 +80,14 @@
         }
       }
     },
-    "c:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Application\\apptlink.Application.csproj": {
+    "C:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Application\\apptlink.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Application\\apptlink.Application.csproj",
+        "projectUniqueName": "C:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Application\\apptlink.Application.csproj",
         "projectName": "apptlink.Application",
-        "projectPath": "c:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Application\\apptlink.Application.csproj",
+        "projectPath": "C:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Application\\apptlink.Application.csproj",
         "packagesPath": "C:\\Users\\LuisMarin\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Application\\obj\\",
+        "outputPath": "C:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\LuisMarin\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -102,8 +102,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "c:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Domain\\apptlink.Domain.csproj": {
-                "projectPath": "c:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Domain\\apptlink.Domain.csproj"
+              "C:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Domain\\apptlink.Domain.csproj": {
+                "projectPath": "C:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Domain\\apptlink.Domain.csproj"
               }
             }
           }
@@ -149,14 +149,14 @@
         }
       }
     },
-    "c:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Domain\\apptlink.Domain.csproj": {
+    "C:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Domain\\apptlink.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Domain\\apptlink.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Domain\\apptlink.Domain.csproj",
         "projectName": "apptlink.Domain",
-        "projectPath": "c:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Domain\\apptlink.Domain.csproj",
+        "projectPath": "C:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Domain\\apptlink.Domain.csproj",
         "packagesPath": "C:\\Users\\LuisMarin\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Domain\\obj\\",
+        "outputPath": "C:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\LuisMarin\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -208,14 +208,14 @@
         }
       }
     },
-    "c:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Infraestructure\\apptlink.Infraestructure.csproj": {
+    "C:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Infraestructure\\apptlink.Infraestructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Infraestructure\\apptlink.Infraestructure.csproj",
+        "projectUniqueName": "C:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Infraestructure\\apptlink.Infraestructure.csproj",
         "projectName": "apptlink.Infraestructure",
-        "projectPath": "c:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Infraestructure\\apptlink.Infraestructure.csproj",
+        "projectPath": "C:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Infraestructure\\apptlink.Infraestructure.csproj",
         "packagesPath": "C:\\Users\\LuisMarin\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Infraestructure\\obj\\",
+        "outputPath": "C:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Infraestructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\LuisMarin\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -230,8 +230,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "c:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Application\\apptlink.Application.csproj": {
-                "projectPath": "c:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Application\\apptlink.Application.csproj"
+              "C:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Application\\apptlink.Application.csproj": {
+                "projectPath": "C:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Application\\apptlink.Application.csproj"
               }
             }
           }

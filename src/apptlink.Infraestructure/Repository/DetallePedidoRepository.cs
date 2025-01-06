@@ -47,7 +47,7 @@ public class DetallePedidoRepository : IDetallePedidoContract
         try
         {
             _logger.LogInformation("Inicia DetallePedido controller - Metodo - Get");
-            DetallePedidoModel? model = await _context.DetallePedido.FindAsync(id);
+            DetallePedidoModel? model = await _context.DetallePedido.FirstOrDefaultAsync(x => x.PedidoId == id);
             if (model is null) return null!;
             return DetallePedidoParsing.ModelToType(model);
         }

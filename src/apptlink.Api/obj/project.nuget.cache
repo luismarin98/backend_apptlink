@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HZKj53VzSIw=",
+  "dgSpecHash": "vSvd9Wgfj8M=",
   "success": true,
-  "projectFilePath": "c:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Api\\apptlink.Api.csproj",
+  "projectFilePath": "C:\\Users\\LuisMarin\\Desktop\\ApptLink_proyecto\\backend\\src\\apptlink.Api\\apptlink.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LuisMarin\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\LuisMarin\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
