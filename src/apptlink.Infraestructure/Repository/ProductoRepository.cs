@@ -126,7 +126,10 @@ public class ProductoRepository : IProductoContract
         try
         {
             _logger.LogInformation("Inicia producto controller - Metodo - Delete");
-            ProductosModel productoModel = ProductoParsing.ModelToType(producto);
+            ProductosModel? productoModel = await _context.Producto.FindAsync(producto.Id);
+            if(productoModel is null) return false;
+            productoModel = ProductoParsing.ModelToType(producto);
+            
             _context.Producto.Update(productoModel);
             await _context.SaveChangesAsync();
             return true;

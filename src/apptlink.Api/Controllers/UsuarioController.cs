@@ -24,8 +24,29 @@ namespace apptlink.Api.Controllers
             _token = token;
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult> GetUsuarioData(int id)
+        {
+            try
+            {
+                _logger.LogInformation("Inicia usuario controller - Metodo - Get");
+                UsuarioType? res = await _contract.GetUsuarioID(id);
+                if (res is null) return StatusCode(StatusCodes.Status404NotFound, "Usuario no encontrado");
+                return StatusCode(StatusCodes.Status200OK, res);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error en metodo get - usuario controller");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error interno del servidor");
+            }
+            finally
+            {
+                _logger.LogInformation("Finaliza usuario controller - Metodo - Get");
+            }
+        }
+
         [HttpPut("change-password")]
-        public async Task<ActionResult> ChangePassword([FromBody] AuthUsuarioType auth)
+        public async Task<ActionResult> ChangePassword([FromBody] RecoverPasswordType auth)
         {
             try
             {
@@ -47,28 +68,7 @@ namespace apptlink.Api.Controllers
             }
         }
 
-        [HttpGet("{email}/{code}")]
-        public async Task<ActionResult> GetSearchVerificationCode(string email, int code)
-        {
-            try
-            {
-                _logger.LogInformation("Inicia usuario controller - Metodo - GetSearchVerificationCode");
-                bool res = await _contract.GetSearchVerificationCode(email, code);
-                if (res is false) return StatusCode(StatusCodes.Status404NotFound, "Código de verificación incorrecto");
-                return StatusCode(StatusCodes.Status200OK, "Código de verificación correcto");
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error en metodo get - usuario controller");
-                return StatusCode(StatusCodes.Status500InternalServerError, "Error interno del servidor");
-            }
-            finally
-            {
-                _logger.LogInformation("Finaliza usuario controller - Metodo - GetSearchVerificationCode");
-            }
-        }
-
-        [HttpGet("recover")]
+        [HttpGet("recover/{email}")]
         public async Task<ActionResult> GetRecoverAccount(string email)
         {
             try

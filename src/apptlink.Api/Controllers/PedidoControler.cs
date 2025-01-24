@@ -12,7 +12,6 @@ namespace apptlink.Api.Controllers
     {
         private readonly IPedidosContract _contract;
         private readonly ILogger<PedidoController> _logger;
-
         public PedidoController(IPedidosContract contract, ILogger<PedidoController> logger)
         {
             _contract = contract;
@@ -36,7 +35,7 @@ namespace apptlink.Api.Controllers
             }
             finally
             {
-                _logger.LogInformation("Finalizando busca de pedidos");
+                _logger.LogInformation("Finalizando búsqueda de pedidos");
             }
         }
 
@@ -57,7 +56,7 @@ namespace apptlink.Api.Controllers
             }
             finally
             {
-                _logger.LogInformation("Finalizando busca de pedido");
+                _logger.LogInformation("Finalizando búsqueda de pedido");
             }
         }
 
@@ -66,19 +65,19 @@ namespace apptlink.Api.Controllers
         {
             try
             {
-                _logger.LogInformation("Inserindo pedido");
+                _logger.LogInformation("Insertando pedido");
                 var result = await _contract.PostPedidos(pedido);
-                if (result is false) return StatusCode(StatusCodes.Status400BadRequest, "Error al inserir pedido");
-                return StatusCode(StatusCodes.Status201Created, "Pedido inserido com sucesso");
+                if (result is false) return StatusCode(StatusCodes.Status400BadRequest, "Error al crear pedido");
+                return StatusCode(StatusCodes.Status201Created, "Pedido insertado con éxito");
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error al inserir pedido");
-                return StatusCode(StatusCodes.Status500InternalServerError, "Error al inserir pedido");
+                _logger.LogError(ex, "Error al crear pedido");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error al crear pedido");
             }
             finally
             {
-                _logger.LogInformation("Finalizando inserção de pedido");
+                _logger.LogInformation("Finalizando inserción de pedido");
             }
         }
 
@@ -87,19 +86,19 @@ namespace apptlink.Api.Controllers
         {
             try
             {
-                _logger.LogInformation("Atualizando pedido");
+                _logger.LogInformation("Actualizando pedido");
                 var result = await _contract.PutPedidos(pedido);
-                if (result is false) return StatusCode(StatusCodes.Status400BadRequest, "Error al atualizar pedido");
-                return StatusCode(StatusCodes.Status200OK, "Pedido atualizado com sucesso");
+                if (result is false) return StatusCode(StatusCodes.Status400BadRequest, "Error al actualizar pedido");
+                return StatusCode(StatusCodes.Status200OK, "Pedido actualizado con éxito");
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error al atualizar pedido");
-                return StatusCode(StatusCodes.Status500InternalServerError, "Error al atualizar pedido");
+                _logger.LogError(ex, "Error al actualizar pedido");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error al actualizar pedido");
             }
             finally
             {
-                _logger.LogInformation("Finalizando atualização de pedido");
+                _logger.LogInformation("Finalizando actualización de pedido");
             }
         }
 
@@ -108,19 +107,19 @@ namespace apptlink.Api.Controllers
         {
             try
             {
-                _logger.LogInformation("Deletando pedido");
+                _logger.LogInformation("Eliminando pedido");
                 var result = await _contract.DeletePedidos(id);
-                if (result is false) return StatusCode(StatusCodes.Status400BadRequest, "Error al deletar pedido");
-                return StatusCode(StatusCodes.Status200OK, "Pedido deletado com sucesso");
+                if (result is false) return StatusCode(StatusCodes.Status400BadRequest, "Error al eliminar pedido");
+                return StatusCode(StatusCodes.Status200OK, "Pedido eliminado con éxito");
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error al deletar pedido");
-                return StatusCode(StatusCodes.Status500InternalServerError, "Error al deletar pedido");
+                _logger.LogError(ex, "Error al eliminar pedido");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error al eliminar pedido");
             }
             finally
             {
-                _logger.LogInformation("Finalizando deleção de pedido");
+                _logger.LogInformation("Finalizando eliminación de pedido");
             }
         }
     }

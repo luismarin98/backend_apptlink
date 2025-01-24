@@ -2,6 +2,7 @@ using apptlink.Application.Contract;
 using apptlink.Infraestructure.Configuracion;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using PdfSharp.Pdf;
 
 namespace apptlink.Api.Controllers
 {
@@ -10,47 +11,26 @@ namespace apptlink.Api.Controllers
     public class FacturaController : ControllerBase
     {
         private readonly ILogger<FacturaController> _logger;
-        private readonly IUsuarioContract _usuarioContract;
-        private readonly IPedidosContract _pedidosContract;
-        private readonly IProductoContract _productoContract;
-        private readonly IDetallePedidoContract _detallePedidoContract;
+        private readonly IFacturaContract _contract;
 
-        public FacturaController(IUsuarioContract usuarioContract, ILogger<FacturaController> logger, IPedidosContract pedidosContract, IProductoContract productoContract, IDetallePedidoContract detallePedidoContract)
+        public FacturaController(ILogger<FacturaController> logger, IFacturaContract contract)
         {
             _logger = logger;
-            _usuarioContract = usuarioContract;
-            _pedidosContract = pedidosContract;
-            _productoContract = productoContract;
-            _detallePedidoContract = detallePedidoContract;
+            _contract = contract;
         }
 
-        [HttpGet]
-        public async Task<ActionResult> GenerarFactura()
+        [HttpGet("{id_pedido}")]
+        public async Task<ActionResult> GenerarFactura(int id_pedido)
         {
             try
             {
                 _logger.LogInformation("Inicia metodo GenerarFactura");
-                /* var pedidos = await _pedidosContract.GetAll();
-                var productos = await _productoContract.GetAll();
-                var detallePedidos = await _detallePedidoContract.GetAll();
-                var usuarios = await _usuarioContract.GetAll();
-
-                var facturas = new List<Factura>();
-
-                foreach (var pedido in pedidos)
-                {
-                    var factura = new Factura();
-                    factura.Pedido = pedido;
-                    factura.Usuario = usuarios.FirstOrDefault(x => x.Id == pedido.UsuarioId);
-                    factura.DetallePedidos = detallePedidos.Where(x => x.PedidoId == pedido.Id).ToList();
-                    foreach (var detalle in factura.DetallePedidos)
-                    {
-                        detalle.Producto = productos.FirstOrDefault(x => x.Id == detalle.ProductoId);
-                    }
-                    facturas.Add(factura);
-                }*/
-
-                return Ok(/* facturas */); 
+                // Generar factura
+                PdfDocument pdf = await _contract.GenerarFactura(id_pedido);
+                // Si no se genero la factura
+                if (pdf == null) return StatusCode(StatusCodes.Status404NotFound, "Falla al generar factura");
+                // Retornar PDF
+                return StatusCode(StatusCodes.Status200OK, pdf);
             }
             catch (Exception ex)
             {

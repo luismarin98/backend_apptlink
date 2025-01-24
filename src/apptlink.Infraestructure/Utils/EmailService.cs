@@ -9,7 +9,7 @@ public class EmailService
 {
     public void SendEmail(string to, string subject, string body, IConfiguration _configuration)
     {
-
+        // Configuracion del cliente SMTP
         var smtpClient = new SmtpClient(_configuration["Smtp:Host"])
         {
             Port = int.Parse(_configuration["Smtp:Port"]!),
@@ -17,6 +17,7 @@ public class EmailService
             EnableSsl = true,
         };
 
+        // Crear mensaje
         var mailMessage = new MailMessage
         {
             From = new MailAddress(_configuration["Smtp:From"]!),
@@ -25,8 +26,9 @@ public class EmailService
             IsBodyHtml = true,
         };
 
+        // Agregar destinatario
         mailMessage.To.Add(to);
-
+        // Enviar correo
         smtpClient.Send(mailMessage);
     }
 }

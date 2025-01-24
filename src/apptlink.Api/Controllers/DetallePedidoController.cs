@@ -19,6 +19,27 @@ namespace apptlink.Api.Controllers
             _logger = logger;
         }
 
+        [HttpPost("save_list")]
+        public async Task<ActionResult> SaveSomethingsDetails(List<DetallePedidoType> detalles)
+        {
+            try
+            {
+                _logger.LogInformation("DetallePedidoController - SaveSomeDetails - Start");
+                bool saveSomeDetails = await _contract.SaveSomeDetails(detalles);
+                if (saveSomeDetails is false) return BadRequest("No se pudo completar la transacción");
+                return StatusCode(StatusCodes.Status201Created, "Transacción completada");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error en SaveSomeDetails");
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+            finally
+            {
+                _logger.LogInformation("DetallePedidoController - SaveSomeDetails - Finally");
+            }
+        }
+
         [HttpGet]
         public async Task<ActionResult> GetDetallePedidos()
         {

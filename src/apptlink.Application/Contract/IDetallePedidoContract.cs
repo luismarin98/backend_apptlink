@@ -5,6 +5,8 @@ namespace apptlink.Application.Contract;
 
 public interface IDetallePedidoContract
 {
+    public Task<bool> SaveSomeDetails(List<DetallePedidoType> detalles);
+    public Task<List<DetallePedidoType>> GetDetallesPedidosByPedido(int id);
     public Task<DetallePedidoType> GetDetallePedidoID(int id);
     public Task<List<DetallePedidoType>> GetDetallesPedidos();
     public Task<bool> PostDetallesPedidos(DetallePedidoType categoria);

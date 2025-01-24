@@ -22,7 +22,9 @@ public static class InfraestructureServices
         services.AddScoped<IPedidosContract, PedidoRepository>();
         services.AddScoped<IProductoContract, ProductoRepository>();
         services.AddScoped<IUsuarioContract, UsuarioRepository>();
+        services.AddScoped<IFacturaContract, FacturaRepository>();
         services.AddSingleton<EmailService>();
+        services.AddScoped<CreatePDF>();
         services.AddScoped<JWTGenerate>();
 
         services.AddAuthentication(opt =>

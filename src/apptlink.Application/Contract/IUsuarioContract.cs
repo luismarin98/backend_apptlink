@@ -6,7 +6,8 @@ namespace apptlink.Application.Contract;
 
 public interface IUsuarioContract
 {
-    public Task<bool> ChangePassword(AuthUsuarioType auth);
+    public Task<UsuarioType> GetUsuarioID(int id);
+    public Task<bool> ChangePassword(RecoverPasswordType auth);
     public Task<bool> GetSearchVerificationCode(string email, int code);
     public Task<string> PostRecover(string email, IConfiguration _configuration);
     public Task<UsuarioType> AuthUsuario(AuthUsuarioType usuario);

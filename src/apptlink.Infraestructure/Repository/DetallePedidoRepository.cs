@@ -20,6 +20,46 @@ public class DetallePedidoRepository : IDetallePedidoContract
         _logger = logger;
     }
 
+    public async Task<bool> SaveSomeDetails(List<DetallePedidoType> detalles)
+    {
+        try
+        {
+            _logger.LogInformation("Inicia DetallePedido controller - Metodo - SaveSomeDetails");
+            List<DetallePedidoModel> models = DetallePedidoParsing.ModelToType(detalles);
+            await _context.DetallePedido.AddRangeAsync(models);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error en metodo SaveSomeDetails - DetallePedido controller");
+            return false;
+        }
+        finally
+        {
+            _logger.LogInformation("Finaliza DetallePedido controller - Metodo - SaveSomeDetails");
+        }
+    }
+
+    public async Task<List<DetallePedidoType>> GetDetallesPedidosByPedido(int id)
+    {
+        try
+        {
+            _logger.LogInformation("Inicia DetallePedido controller - Metodo - Get");
+            List<DetallePedidoModel> models = await _context.DetallePedido.Where(x => x.PedidoId == id).ToListAsync();
+            return DetallePedidoParsing.ModelToType(models);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error en metodo get - DetallePedido controller");
+            return null!;
+        }
+        finally
+        {
+            _logger.LogInformation("Finaliza DetallePedido controller - Metodo - Get");
+        }
+    }
+
     public async Task<bool> DeleteDetallesPedidos(int id)
     {
         try
@@ -107,7 +147,10 @@ public class DetallePedidoRepository : IDetallePedidoContract
         try
         {
             _logger.LogInformation("Inicia DetallePedido controller - Metodo - Put");
-            DetallePedidoModel model = DetallePedidoParsing.ModelToType(categoria);
+            DetallePedidoModel? model = await _context.DetallePedido.FindAsync(categoria.Id);
+            if (model is null) return false;
+            model = DetallePedidoParsing.ModelToType(categoria);
+            
             _context.DetallePedido.Update(model);
             await _context.SaveChangesAsync();
             return true;

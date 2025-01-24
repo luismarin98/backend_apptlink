@@ -20,3 +20,10 @@ public class AuthUsuarioType
     [JsonPropertyName("email")] public string? Email { get; set; }
     [JsonPropertyName("password")] public string? Password { get; set; }
 }
+
+public class RecoverPasswordType
+{
+    [JsonPropertyName("email")] public string? Email { get; set; }
+    [JsonPropertyName("code")] public int? Code { get; set; }
+    [JsonPropertyName("password")] public string? Password { get; set; }
+}

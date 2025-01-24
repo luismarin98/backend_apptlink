@@ -107,7 +107,10 @@ public class PedidoRepository : IPedidosContract
         try
         {
             _logger.LogInformation("Inicia pedido controller - Metodo - Delete");
-            PedidoModel pedidoModel = PedidoParsing.ModelToType(pedidos);
+            PedidoModel? pedidoModel = await _context.Pedido.FindAsync(pedidos.Id);
+            if (pedidoModel is null) return false;
+            pedidoModel = PedidoParsing.ModelToType(pedidos);
+            
             _context.Pedido.Update(pedidoModel);
             await _context.SaveChangesAsync();
             return true;

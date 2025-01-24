@@ -24,6 +24,26 @@ public class UsuarioRepository : IUsuarioContract
         _logger = logger;
     }
 
+    public async Task<UsuarioType> GetUsuarioID(int id)
+    {
+        try
+        {
+            _logger.LogInformation("Inicia usuario controller - Metodo - GetUsuarioID");
+            UsuarioModel? usuario = await _context.Usuario.FirstOrDefaultAsync(x => x.Id == id);
+            if (usuario is null) return null!;
+            return UsuarioParsing.ModelToType(usuario);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error en metodo GetUsuarioID - usuario controller");
+            return null!;
+        }
+        finally
+        {
+            _logger.LogInformation("Finaliza usuario controller - Metodo - GetUsuarioID");
+        }
+    }
+
     public async Task<string> PostRecover(string email, IConfiguration _configuration)
     {
         try
@@ -178,6 +198,7 @@ public class UsuarioRepository : IUsuarioContract
         {
             _logger.LogInformation("Inicia usuario controller - Metodo - Post");
             UsuarioModel usuarioModel = UsuarioParsing.ModelToType(usuario);
+            usuarioModel.VerificationCode = GenerateVerificationCode();
             _context.Usuario.Add(usuarioModel);
             await _context.SaveChangesAsync();
             return true;
@@ -234,12 +255,12 @@ public class UsuarioRepository : IUsuarioContract
         }
     }
 
-    public async Task<bool> ChangePassword(AuthUsuarioType auth)
+    public async Task<bool> ChangePassword(RecoverPasswordType auth)
     {
         try
         {
             _logger.LogInformation("Inicia usuario controller - Metodo - ChangePassword");
-            UsuarioModel? usuario = await _context.Usuario.FirstOrDefaultAsync(x => x.Email == auth.Email);
+            UsuarioModel? usuario = await _context.Usuario.FirstOrDefaultAsync(x => x.Email == auth.Email && x.VerificationCode == auth.Code);
             if (usuario is null) return false;
             usuario.Password = auth.Password;
             usuario.VerificationCode = null;
