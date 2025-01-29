@@ -24,12 +24,14 @@ public class CreatePDF
         PdfDocument doc = new PdfDocument();
         PdfPage page = doc.AddPage();
         XGraphics gfx = XGraphics.FromPdfPage(page);
+        XFont font = new XFont("Verdana", 20, XFontStyleEx.Bold);
 
         // Obtener la página actual y su tamaño
         XRect rect = new XRect(0, 0, page.Width.Point, page.Height.Point);
 
         // Agregar un título
-        gfx.DrawString("Factura", new XFont("Arial", 20), XBrushes.Black, new XRect(0, 0, rect.Width, 30), XStringFormats.Center);
+        XRect layoutRectangle = new XRect(0, 0, page.Width.Value, 0); // Altura del rectángulo de diseño debe ser 0
+        gfx.DrawString("Factura", font, XBrushes.Black, layoutRectangle, XStringFormats.TopLeft);
 
         // Agregar detalles de la factura (ejemplo)
         gfx.DrawString($"Cliente: {usuario.Nombre} {usuario.Apellido}", new XFont("Arial", 12), XBrushes.Black, new XRect(50, 50, rect.Width, 20));

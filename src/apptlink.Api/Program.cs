@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.OpenApi.Models;
 using apptlink.Infraestructure;
 using apptlink.Infraestructure.Configuracion;
+using Microsoft.AspNetCore.DataProtection;
+using System.Security.Cryptography.X509Certificates;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,15 +16,26 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new OpenApiInfo { Title = General.NombreApi, Version = "v1" });
 });
 
+// Configure Data Protection
+var dataProtectionBuilder = builder.Services.AddDataProtection()
+    .PersistKeysToFileSystem(new DirectoryInfo(@"/root/.aspnet/DataProtection-Keys"));
+
+string? encryptionKey = Environment.GetEnvironmentVariable("ENCRYPTION_KEY");
+if (!string.IsNullOrEmpty(encryptionKey))
+{
+    X509Certificate2? cert = new X509Certificate2(Convert.FromBase64String(encryptionKey));
+    dataProtectionBuilder.ProtectKeysWithCertificate(cert);
+}
+
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
-builder.Services.AddCors(options =>
+/* builder.Services.AddCors(options =>
 {
     options.AddPolicy("MyCorsPolicy", builder =>
     {
         builder.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader();
     });
-});
+}); */
 
 var app = builder.Build();
 

@@ -3,6 +3,7 @@ using apptlink.Infraestructure.Configuracion;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PdfSharp.Pdf;
+using System.IO;
 
 namespace apptlink.Api.Controllers
 {
@@ -10,36 +11,38 @@ namespace apptlink.Api.Controllers
     [ApiController]
     public class FacturaController : ControllerBase
     {
-        private readonly ILogger<FacturaController> _logger;
         private readonly IFacturaContract _contract;
+        private readonly ILogger<FacturaController> _logger;
 
-        public FacturaController(ILogger<FacturaController> logger, IFacturaContract contract)
+        public FacturaController(IFacturaContract contract, ILogger<FacturaController> logger)
         {
-            _logger = logger;
             _contract = contract;
+            _logger = logger;
         }
 
-        [HttpGet("{id_pedido}")]
-        public async Task<ActionResult> GenerarFactura(int id_pedido)
+        [HttpGet("GenerarFactura/{pedido_id}")]
+        public async Task<IActionResult> GenerarFactura(int pedido_id)
         {
             try
             {
-                _logger.LogInformation("Inicia metodo GenerarFactura");
-                // Generar factura
-                PdfDocument pdf = await _contract.GenerarFactura(id_pedido);
-                // Si no se genero la factura
-                if (pdf == null) return StatusCode(StatusCodes.Status404NotFound, "Falla al generar factura");
-                // Retornar PDF
-                return StatusCode(StatusCodes.Status200OK, pdf);
+                _logger.LogInformation("Inicia metodo - Get - GenerarFactura");
+                PdfDocument factura = await _contract.GenerarFactura(pedido_id);
+                if (factura == null) return StatusCode(StatusCodes.Status404NotFound, "Pedido no encontrado");
+
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    factura.Save(stream, false);
+                    return File(stream.ToArray(), "application/pdf", "Factura.pdf");
+                }
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error en metodo - Get - GenerarFactura");
-                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error al generar factura");
             }
             finally
             {
-                _logger.LogInformation("Finaliza metodo GenerarFactura");
+                _logger.LogInformation("Finaliza metodo - Get - GenerarFactura");
             }
         }
     }
