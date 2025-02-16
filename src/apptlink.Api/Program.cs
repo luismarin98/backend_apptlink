@@ -29,13 +29,15 @@ if (!string.IsNullOrEmpty(encryptionKey))
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
-/* builder.Services.AddCors(options =>
+builder.Services.AddCors(options =>
 {
     options.AddPolicy("MyCorsPolicy", builder =>
     {
-        builder.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader();
+        builder.WithOrigins("http://192.168.100.246:3000", "http://localhost:3000")
+               .AllowAnyMethod()
+               .AllowAnyHeader();
     });
-}); */
+});
 
 var app = builder.Build();
 

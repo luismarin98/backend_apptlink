@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("apptlink.Infraestructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7dfa37927ef3ce9cb1eb60e65093f4d324be801b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c543a26708d1da38fa6f6bc8243ee1d225f8431e")]
 [assembly: System.Reflection.AssemblyProductAttribute("apptlink.Infraestructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("apptlink.Infraestructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
